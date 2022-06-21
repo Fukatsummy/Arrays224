@@ -38,7 +38,7 @@ void main()
 	cout << "Сумма элементов массива: " << sum << endl;
 	cout << "Среднее арифметическое: " << (double)sum / n << endl;
 
-	//Поиск мин и махзначения в массиве
+	//Поиск мин и мах значения в массиве
 	int min, max;
 	min = max = arr[0];
 	for (int i = 0; i < n; i++)
@@ -48,4 +48,6 @@ void main()
 	}
 	cout << "MIN : " << min << endl;
 	cout << "MAX : " << max << endl;
+
+
 }
