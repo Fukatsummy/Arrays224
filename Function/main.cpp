@@ -2,10 +2,12 @@
 #include<iostream>
 using namespace std;
 
-int Add(int a, int b);	//Прототип функции (Объявление функции - Function declaration)
+int Add(int a, int b,int c=0);	//Прототип функции (Объявление функции - Function declaration)
 int Sub(int a, int b);
 int Mul(int a, int b);
 double Div(int a, int b);
+int Factorial(int n);
+double Power(double a, int n);
 
 void main()
 {
@@ -19,11 +21,11 @@ void main()
 	cout << a << " / " << b << " = " << Div(a, b) << endl;
 }
 
-int Add(int a, int b)//Реализация функции (Определение функции - Function definition)
+int Add(int a, int b, int c)//Реализация функции (Определение функции - Function definition)
 {
 	//Addition - Сложение
-	int c = a + b;
-	return c;
+	int sum = a + b+c;
+	return sum;
 }
 int Sub(int a, int b)
 {
@@ -39,4 +41,17 @@ double Div(int a, int b)
 {
 	//Division - Деление
 	return (double)a / b;
+}
+int Factorial(int n)
+{
+	int f = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		f *= i;
+	}
+	return f;
+}
+double Power(double a, int n)
+{
+	return 0;
 }
