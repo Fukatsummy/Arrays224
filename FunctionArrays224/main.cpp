@@ -23,6 +23,7 @@ double Sum(double arr[], const int n);
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 
+
 void main()
 {
 	setlocale(LC_ALL, "");
