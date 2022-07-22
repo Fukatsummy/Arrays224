@@ -1,29 +1,9 @@
-#include<iostream>
-using namespace std;
-
-#define tab "\t"
-
-const int ROWS = 3;
-const int COLS = 4;
-
-
-void FillRand(int arr[], const int n);
-void FillRand(double arr[], const int n);
-//void FillRand(int arr[ROWS][COLS],const int ROWS, const int COLS);
-
-template <typename T>void Print(T arr[], const int n);
-template <typename T>void Print( T arr[], const int n);
-//void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template <typename T>void Sort(T arr[], const int n);
-template <typename T>void Sort(T arr[], const int n);
-
-template <typename T>T Sum(T arr[], const int n);
-template <typename T>T Sum(T arr[], const int n);
-
-template <typename T>double Avg(T arr[], const int n);
-template <typename T>double Avg(T arr[], const int n);
-
+#include"stdafx.h"
+#include"Constants.h"
+#include"FillRend.h"
+#include"Print.h"
+#include"Sort.h"
+#include"Statistics.h"
 
 void main()
 {
@@ -35,113 +15,34 @@ void main()
 	Sort(arr, n);
 	Print(arr, n);
 	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
-	cout << "Средне-арифметическое элементов массива: " << Avg(arr, n) << endl;
-	
+	cout << "Среднее-арифметическое элементов массива: " << Avg(arr, n) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(arr, n) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
 	const int SIZE = 8;
-	double brr[ SIZE ];
+	double brr[SIZE];
 	FillRand(brr, SIZE);
 	Print(brr, SIZE);
 	Sort(brr, SIZE);
 	Print(brr, SIZE);
 	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
-	cout << "Средне-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
-
+	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 	
-	/*int i_arr_2[ROWS][COLS];
+	int i_arr_2[ROWS][COLS];
 	FillRand(i_arr_2, ROWS, COLS);
-	Print(i_arr_2, ROWS, COLS);*/
+	Print(i_arr_2, ROWS, COLS);
+	cout << "Сумма элементов массива: " << Sum(i_arr_2, ROWS, COLS) << endl;
+	cout << "Среднее-арифметическое элементов массива: " << Avg(i_arr_2, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(i_arr_2, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(i_arr_2, ROWS, COLS) << endl;
+
+	/*double d_arr_2[ROWS][COLS];
+	int d_arr_2[ROWS][COLS];
+	FillRand(d_arr_2, ROWS, COLS);
+	Print(d_arr_2, ROWS, COLS);
+	cout << "Сумма элементов массива: " << Sum(d_arr_2, ROWS, COLS) << endl;
+	cout << "Среднее-арифметическое элементов массива: " << Avg(d_arr_2, ROWS, COLS) << endl;
+	cout << "Минимальное значение в массиве: " << minValueIn(d_arr_2, ROWS, COLS) << endl;
+	cout << "Максимальное значение в массиве: " << maxValueIn(d_arr_2, ROWS, COLS) << endl;*/
 }
 
 
-void FillRand(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 100;
-	}
-}
-void FillRand(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 10000;
-		arr[i] /= 100;
-	}
-}
-
-template <typename T>void Print(T arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-//template <typename T>void Print(T arr[], const int n){
-//	for (int i = 0; i < n; i++)
-//	{
-//		cout << arr[i] << tab;
-//	}
-//	cout << endl;
-//}
-
-template <typename T>void Sort(T arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (arr[j] < arr[i])
-			{
-				T buffer = arr[i];
-				arr[i] = arr[j];
-				arr[j] = buffer;
-			}
-		}
-	}
-}
-//template <typename T>void Sort(T arr[], const int n)
-//{
-//	for (int i = 0; i < n; i++)
-//	{
-//		for (int j = i + 1; j < n; j++)
-//		{
-//			if (arr[j] < arr[i])
-//			{
-//				T buffer = arr[i];
-//				arr[i] = arr[j];
-//				arr[j] = buffer;
-//			}
-//		}
-//	}
-//}
-
-template <typename T>T Sum(T arr[], const int n)
-{
-	T sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-
-}
- //template <typename T>T Sum(T arr[], const int n)
-//{
-//	T sum = 0;
-//	for (int i = 0; i < n; i++)
-//	{
-//		sum += arr[i];
-//	}
-//	return sum;
-//
-//}
-
- template <typename T>double Avg(T arr[], const int n)
-{
-	return (double)Sum(arr, n) / n;
-}
-//template <typename T>double Avg(T arr[], const int n)
-/*
-	return (double) Sum(arr, n) / n;
-}{*/
