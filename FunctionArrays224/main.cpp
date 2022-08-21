@@ -7,15 +7,23 @@ void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void UniqueRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(double arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS);
+
+
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
 int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -36,6 +44,8 @@ void main()
 	cout << "Среднее-арифметическое элементов массива: " << Avg(arr, n) << endl;
 	cout << "Минимальное значение в массиве: " << minValueIn(arr, n) << endl;
 	cout << "Максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
+
+
 	const int SIZE = 8;
 	double brr[SIZE];
 	FillRand(brr, SIZE);
@@ -46,7 +56,7 @@ void main()
 	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 
 	int i_arr_2[ROWS][COLS];
-	FillRand(i_arr_2, ROWS, COLS);
+	UniqueRand(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
 	cout << "Сумма элементов массива: " << Sum(i_arr_2, ROWS, COLS) << endl;
 	cout << "Среднее-арифметическое элементов массива: " << Avg(i_arr_2, ROWS, COLS) << endl;
@@ -97,6 +107,45 @@ void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
 		{
 			arr[i][j] = rand() % 10000;
 			arr[i][j] /= 100;
+		}
+	}
+}
+void UniqueRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	/*for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			bool unique;
+			do
+			{
+				arr[i][j] = rand() % (ROWS*COLS);
+				unique = true;
+				for (int k = 0; k <= i; k++)
+				{
+					for (int l = 0; l < (k == i ? j : COLS); l++)
+					{
+						if (arr[i][j] == arr[k][l])
+						{
+							unique = false;
+							break;
+						}
+					}
+					if (!unique)break;
+				}
+			} while (!unique);
+		}
+	}*/
+	for (int i = 0; i < ROWS*COLS; i++)
+	{
+		arr[0][i] = rand() % (ROWS*COLS);
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[0][i] == arr[0][j])
+			{
+				i--;
+				break;
+			}
 		}
 	}
 }
@@ -168,6 +217,37 @@ void Sort(double arr[], const int n)
 		}
 	}
 }
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	int iterations = 0;
+	int exchanges = 0;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			for (int k = 0; k < ROWS; k++)
+			{
+				/*int l;
+				if (k == i)l = j + 1;
+				else l = 0;*/
+				for (int l=k==i?j+1:0; l < COLS; l++)
+				{
+					iterations++;
+					if (arr[k][l] < arr[i][j])
+					{
+						int buffer = arr[i][j];
+						arr[i][j] = arr[k][l];
+						arr[k][l] = buffer;
+						exchanges++;
+					}
+				}
+			}
+		}
+	}
+	cout << "Количество итераций: "<<iterations << endl;
+	cout << "Количество повторений: "<<exchanges << endl;
+}
+
 int Sum(int arr[], const int n)
 {
 	int sum = 0;
