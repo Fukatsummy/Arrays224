@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include<Windows.h>
 using namespace std;
 using std::cin;
@@ -23,8 +23,8 @@ void main()
 #ifdef EXAMPLE_1
 	//char str[] = { 'H','e','l','l','o',0 };
 	char str[] = "Hello";
-	//str[] - строковая переменная
-	//"Hello" - строковая константа
+	//str[] - СЃС‚СЂРѕРєРѕРІР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ
+	//"Hello" - СЃС‚СЂРѕРєРѕРІР°СЏ РєРѕРЅСЃС‚Р°РЅС‚Р°
 	cout << str << endl;
 	cout << typeid(str).name() << endl;
 	cout << typeid("Hello").name() << endl;
@@ -33,24 +33,24 @@ void main()
 //#ifdef EXAMPLE_2
 	//for (int i = 0; i < 256; i++)cout << i << "\t" << char(i) << endl;
 	const int SIZE = 256;
-	char str[SIZE] = "Аргентина манит негра";
-	cout << "Введите строку: ";
+	char str[SIZE] = "РђСЂРіРµРЅС‚РёРЅР° РјР°РЅРёС‚ РЅРµРіСЂР°";
+	cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ";
 	//cin >> str;
 	SetConsoleCP(1251);
 	//cin.getline(str, SIZE);
 	SetConsoleCP(866);
 	cout << str << endl;
 //#endif // EXAMPLE_2
-	//cout<<"Длина строки:  " << StringLength(str) << endl;
-	//cout<<"Длина строки:  " << strlen(str) << endl;
-	//cout<<"Длина строки в Байтах:  " << sizeof(str) << endl;
+	//cout<<"Р”Р»РёРЅР° СЃС‚СЂРѕРєРё:  " << StringLength(str) << endl;
+	//cout<<"Р”Р»РёРЅР° СЃС‚СЂРѕРєРё:  " << strlen(str) << endl;
+	//cout<<"Р”Р»РёРЅР° СЃС‚СЂРѕРєРё РІ Р‘Р°Р№С‚Р°С…:  " << sizeof(str) << endl;
 	//upper_case(str);
 	//cout << str << endl;
 	//lower_case(str);
 	//cout << str << endl;
 	//shrink(str);
 	//cout << str << endl;
-	cout << " Строка "<<(is_palindrom(str) ? "" : "HE ") << "является палиндромом" << endl;
+	cout << " РЎС‚СЂРѕРєР° "<<(is_palindrom(str) ? "" : "HE ") << "СЏРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј" << endl;
 }
 
 int StringLength(const char str[])
@@ -63,12 +63,12 @@ void upper_case(char str[])
 {
 	for (int i = 0; str[i]; i++)
 	{
-		//первый вариант
+		//РїРµСЂРІС‹Р№ РІР°СЂРёР°РЅС‚
 		/*if(str[i] >='a' && str[i] <= 'z')str[i]-= ' ';
-		if(str[i] >='а' && str[i] <= 'я')str[i]-= ' ';
-		if (str[i] == 'ё') str[i]-= 'Ё';*/
+		if(str[i] >='Р°' && str[i] <= 'СЏ')str[i]-= ' ';
+		if (str[i] == 'С‘') str[i]-= 'РЃ';*/
 		str[i] = toupper(str[i]);
-		//Функция toupper(char s) принимает букву и возвращает такую же заглавную букву 
+		//Р¤СѓРЅРєС†РёСЏ toupper(char s) РїСЂРёРЅРёРјР°РµС‚ Р±СѓРєРІСѓ Рё РІРѕР·РІСЂР°С‰Р°РµС‚ С‚Р°РєСѓСЋ Р¶Рµ Р·Р°РіР»Р°РІРЅСѓСЋ Р±СѓРєРІСѓ 
 	}
 }
 void lower_case(char str[])
